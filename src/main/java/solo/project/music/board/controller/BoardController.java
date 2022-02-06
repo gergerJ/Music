@@ -45,5 +45,18 @@ public class BoardController {
         mv.setViewName("redirect:/board/list");
         return mv;
     }
-    //곡 수정 기능! => 가사 오타 수정
+    //수정 창 띄우기
+    @PostMapping(value="/board/update")
+    public ModelAndView update(ModelAndView mv, Long seq){
+        mv.addObject("update", boardService.update(seq));
+        mv.setViewName("board/updatePage.html");
+        return mv;
+    }
+    //실제 수정부분 구현
+    @PostMapping(value="/board/updateMusicList")
+    public ModelAndView updateMusic(ModelAndView mv, BoardDto boardDto){
+        mv.addObject("List", boardService.updateMusic(boardDto));
+        mv.setViewName("redirect:/board/list");
+        return mv;
+    }
 }

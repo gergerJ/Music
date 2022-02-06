@@ -1,9 +1,6 @@
 package solo.project.music.board.mapper;
 
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import solo.project.music.board.dto.BoardDto;
 
 import java.util.List;
@@ -19,4 +16,10 @@ public interface BoardMapper {
 
     @Delete("DELETE FROM MUSIC WHERE SEQ= #{seq}")
     int deleteMusic(Long seq);
+
+    @Select("SELECT * FROM MUSIC where seq = #{seq}")
+    int update(Long seq);
+
+    @Update("UPDATE MUSIC SET LYRICS=${lyrics} where SEQ = #{seq}")
+    int updateMusic(BoardDto boardDto);
 }

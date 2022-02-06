@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/cheatsheet/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/css/cheatsheet.css" rel="stylesheet">
+    <script>
+        function btn(){
+            document.frm.submit();
+        }
+    </script>
+</head>
+<body>
+<article class="my-3" id="validation">
+    <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
+        <h3>곡 정보 입력창</h3>
+    </div>
+
+    <div>
+        <div class="bd-example">
+            <form class="row g-3" action="/board/updateMusicList" method="post" name="frm">
+                <div class="col-md-4">
+                    <label for="validationServer02" class="form-label">가사</label>
+                    <input name="lyrics" th:value="${update.lyrics}" type="text" class="form-control is-valid" id="validationServer02"  required>
+                </div>
+                <button type="button" onclick="btn()">수정완료</button>
+            </form>
+        </div>
+    </div>
+</article>
+</body>
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="/js/cheatsheet.js"></script>
+</html>
