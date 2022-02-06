@@ -1,0 +1,75 @@
+
+<!doctype html>
+<html lang="ko"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Music List</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/dashboard.css" rel="stylesheet">
+    <script>
+        function musicInfo(seq){
+            const musicList = document.frm;
+            musicList.setAttribute("action", "/board/select_lyrics")
+            musicList.setAttribute("method", "get")
+            musicList.submit();
+        }
+    </script>
+</head>
+<body>
+    <form name="frm">
+        <input type="hidden" name="seq">
+    </form>
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Company name</a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+        <div class="navbar-nav">
+            <div class="nav-item text-nowrap">
+                <a class="nav-link px-3" href="#">Sign out</a>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="container-fluid" >
+        <div class="row">
+            <h2>Music List</h2>
+            <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                    <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">곡 제목</th>
+                        <th scope="col">가사</th>
+                        <th scope="col">아티스트</th>
+                        <th scope="col">발매일</th>
+                        <th scope="col">장르</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="list : ${List}">
+                        <td><span th:text="${list.seq}"></span></td>
+                        <td><span th:text="${list.music_name}"></span></td>
+                        <td>
+<!--                            <span th:text="${list.lyrics}"></span>-->
+                            <button type="button" th:onclick="|musicInfo(${list.seq})|">가사</button>
+                        </td>
+                        <td><span th:text="${list.artist}"></span></td>
+                        <td><span th:text="${list.release_date}"></span></td>
+                        <td><span th:text="${list.genre}"></span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
