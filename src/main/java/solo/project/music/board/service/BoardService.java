@@ -18,4 +18,12 @@ public class BoardService {
     public List<BoardDto> list(BoardDto boardDto){
         return boardMapper.list(boardDto);
     }
+    public List<BoardDto> createMusic(BoardDto boardDto){
+        int result = boardMapper.createMusic(boardDto);
+        return boardMapper.list(boardDto);
+    }
+    public int deleteMusic(Long seq){
+        int result = boardMapper.deleteMusic(seq);
+        return result;
+    }
 }

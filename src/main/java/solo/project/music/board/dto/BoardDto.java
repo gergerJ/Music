@@ -14,4 +14,5 @@ public class BoardDto {
     private String artist;
     private Date release_date;
     private String genre;
+
 }

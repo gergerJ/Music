@@ -16,11 +16,30 @@
         function musicInfo(seq){
             const musicList = document.frm;
             musicList.setAttribute("action", "/board/select_lyrics")
-            musicList.setAttribute("method", "get")
+            musicList.setAttribute("method", "post")
             musicList.submit();
+        }
+        function createMusic(){
+            location.href ="/board/create";
+        }
+        function updateButton(seq){
+            const updateMusic = document.update;
+            updateMusic.seq.value = seq;
+            updateMusic.submit();
+        }
+        function deleteButton(seq){
+            const deleteMusic = document.delete;
+            deleteMusic.seq.value = seq;
+            deleteMusic.submit();
         }
     </script>
 </head>
+<form action="/board/update" name="update" method="post">
+    <input name="seq" type="hidden">
+</form>
+<form action="/board/delete" name="delete" method="post">
+    <input name="seq" type="hidden">
+</form>
 <body>
     <form name="frm">
         <input type="hidden" name="seq">
@@ -65,9 +84,12 @@
                         <td><span th:text="${list.artist}"></span></td>
                         <td><span th:text="${list.release_date}"></span></td>
                         <td><span th:text="${list.genre}"></span></td>
+                        <td><button type="button" th:onclick="|updateButton(${list.seq})|" >수정</button></td>
+                        <td><button type="button" th:onclick="|deleteButton(${list.seq})|" >삭제</button></td>
                     </tr>
                     </tbody>
                 </table>
+                <button name="btn" type="button" onclick="createMusic()">곡 추가</button>
             </div>
         </div>
     </div>
