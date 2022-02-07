@@ -20,6 +20,11 @@ public class BoardService {
     }
     public List<BoardDto> createMusic(BoardDto boardDto){
         int result = boardMapper.createMusic(boardDto);
+        String resultSet = "등록 실패";
+        if(result>0){
+            resultSet="등록 성공";
+        }
+        log.info("resultSet : {}", resultSet);
         return boardMapper.list(boardDto);
     }
     public int deleteMusic(Long seq){
@@ -34,6 +39,14 @@ public class BoardService {
     public List<BoardDto> updateMusic(BoardDto boardDto){
         log.info("seq:{}", boardDto.getSeq());
         int result = boardMapper.updateMusic(boardDto);
+        String resultSet = "업데이트 실패";
+        if(result>0){
+            resultSet="업데이트 성공";
+        }
+        log.info("resultSet : {}", resultSet);
         return boardMapper.list(boardDto);
+    }
+    public BoardDto lyrics(Long seq){
+        return boardMapper.lyrics(seq);
     }
 }

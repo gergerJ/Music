@@ -20,6 +20,9 @@ public interface BoardMapper {
     @Select("SELECT * FROM MUSIC where seq = #{seq}")
     BoardDto update(Long seq);
 
-    @Update("UPDATE MUSIC SET LYRICS=#{lyrics} where SEQ = ${seq}")
+    @Update("UPDATE MUSIC SET LYRICS= #{lyrics} where SEQ = #{seq}")
     int updateMusic(BoardDto boardDto);
+
+    @Select("SELECT * FROM MUSIC WHERE SEQ = #{seq}")
+    BoardDto lyrics(Long seq);
 }

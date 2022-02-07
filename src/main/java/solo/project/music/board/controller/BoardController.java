@@ -23,8 +23,13 @@ public class BoardController {
         mv.setViewName("board/list.html");
         return mv;
     }
-    // 가사 연동 시키키
-
+    // 가사 보이게 하는 창! 추가
+    @GetMapping (value="/board/lyrics")
+    public ModelAndView lyrics(ModelAndView mv, Long seq){
+        mv.addObject("lyricsView" , boardService.lyrics(seq));
+        mv.setViewName("board/lyricsPage.html");
+        return mv;
+    }
     //곡 추가를 위한 창 띄우기 부분
     @GetMapping(value="/board/create")
     public ModelAndView createMusic(ModelAndView mv){

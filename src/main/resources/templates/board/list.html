@@ -13,11 +13,12 @@
     <!-- Custom styles for this template -->
     <link href="/css/dashboard.css" rel="stylesheet">
     <script>
-        function musicInfo(seq){
-            const musicList = document.frm;
-            musicList.setAttribute("action", "/board/select_lyrics")
-            musicList.setAttribute("method", "post")
-            musicList.submit();
+        function lyricsInfo(seq){
+            const lyricsList = document.frm;
+            lyricsList.seq.value = seq;
+            lyricsList.setAttribute("action", "/board/lyrics")
+            lyricsList.setAttribute("method", "get")
+            lyricsList.submit();
         }
         function createMusic(){
             location.href ="/board/create";
@@ -40,10 +41,11 @@
 <form action="/board/delete" name="delete" method="post">
     <input name="seq" type="hidden">
 </form>
+<form name="frm">
+    <input type="hidden" name="seq">
+</form>
 <body>
-    <form name="frm">
-        <input type="hidden" name="seq">
-    </form>
+
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Company name</a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,7 +81,7 @@
                         <td><span th:text="${list.music_name}"></span></td>
                         <td>
 <!--                            <span th:text="${list.lyrics}"></span>-->
-                            <button type="button" th:onclick="|musicInfo(${list.seq})|">가사</button>
+                            <button type="button" th:onclick="|lyricsInfo(${list.seq})|">가사</button>
                         </td>
                         <td><span th:text="${list.artist}"></span></td>
                         <td><span th:text="${list.release_date}"></span></td>
