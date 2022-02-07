@@ -18,8 +18,8 @@ public interface BoardMapper {
     int deleteMusic(Long seq);
 
     @Select("SELECT * FROM MUSIC where seq = #{seq}")
-    int update(Long seq);
+    BoardDto update(Long seq);
 
-    @Update("UPDATE MUSIC SET LYRICS=${lyrics} where SEQ = #{seq}")
+    @Update("UPDATE MUSIC SET LYRICS=#{lyrics} where SEQ = ${seq}")
     int updateMusic(BoardDto boardDto);
 }

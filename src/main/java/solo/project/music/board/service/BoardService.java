@@ -26,10 +26,13 @@ public class BoardService {
         int result = boardMapper.deleteMusic(seq);
         return result;
     }
-    public int update(Long seq){
+    public BoardDto update(Long seq){
+//        BoardDto boardDto = boardMapper.update(seq);
+//        log.info("seq:{}", boardDto.getSeq());
         return boardMapper.update(seq);
     }
     public List<BoardDto> updateMusic(BoardDto boardDto){
+        log.info("seq:{}", boardDto.getSeq());
         int result = boardMapper.updateMusic(boardDto);
         return boardMapper.list(boardDto);
     }

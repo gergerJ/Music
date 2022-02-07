@@ -12,8 +12,11 @@
     <!-- Custom styles for this template -->
     <link href="/css/cheatsheet.css" rel="stylesheet">
     <script>
-        function btn(){
-            document.frm.submit();
+        function btn(seq){
+            const updateBtn = document.frm;
+            updateBtn.seq.value = seq;
+            // document.frm.seq.value = seq;
+            updateBtn.submit();
         }
     </script>
 </head>
@@ -26,11 +29,12 @@
     <div>
         <div class="bd-example">
             <form class="row g-3" action="/board/updateMusicList" method="post" name="frm">
+                <input type="hidden" name="seq">
                 <div class="col-md-4">
                     <label for="validationServer02" class="form-label">가사</label>
-                    <input name="lyrics" th:value="${update.lyrics}" type="text" class="form-control is-valid" id="validationServer02"  required>
+                    <input name="lyrics" th:value="${update.lyrics}"  class="form-control is-valid" id="validationServer02"  required>
                 </div>
-                <button type="button" onclick="btn()">수정완료</button>
+                <button type="button" th:onclick="|btn(${update.seq})|">수정완료</button>
             </form>
         </div>
     </div>
