@@ -53,7 +53,7 @@ public class BoardService {
         int result = boardMapper.deleteMusic(seq);
         String resultSet = "삭제 실패";
         if(result>0){
-            resultSet="업데이트 성공";
+            resultSet="삭제 성공";
         }
         log.info("resultSet : {}", resultSet);
         return result;
@@ -74,7 +74,7 @@ public class BoardService {
      * @return List<BoardDto>
      */
     public List<BoardDto> updateMusic(BoardDto boardDto){
-        log.info("seq:{}", boardDto.getSeq());
+        log.debug("seq:{}", boardDto.getSeq());
         int result = boardMapper.updateMusic(boardDto);
         String resultSet = "업데이트 실패";
         if(result>0){

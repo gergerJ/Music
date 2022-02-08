@@ -8,7 +8,7 @@ CREATE TABLE music(
 );
 INSERT INTO music(music_name, lyrics, artist, release_date, genre)
 VALUES('루시퍼',
-       '숨 을 곳도 찾지 못해 나는 피하려고 애써봐도
+'        숨 을 곳도 찾지 못해 나는 피하려고 애써봐도
         거부조차 할 수 없는 네개 갇혀버린 나
         사랑이었다면 정말 사랑했던 거라면 내개 이러지는 말아
         Her whisper is the Lucifer-fer-fer
@@ -66,7 +66,150 @@ VALUES('루시퍼',
        ,'샤이니','2010-07-19','가요');
 INSERT INTO music(music_name, lyrics, artist, release_date, genre)
 VALUES('붐바야',
-       ''
+'        BLACKPINK in your area
+        (Hot) BLACKPINK in your area
+        Been a bad girl, I know I am
+        And I''m so hot I need a fan
+        I don''t want a boy, I need a man
+        Click-clack botta bing, botta boom
+        문을 박차면 모두 날 바라봄
+        굳이 애써 노력 안 해도
+        모든 남자들은 코피가 팡팡팡
+        (팡팡 파라파라 팡팡팡)
+        지금 날 위한 축배를 짠짠짠
+        (Hands up) 내 손엔 bottle full o'' Henny
+        네가 말로만 듣던 걔가 나야 Jennie
+        춤추는 불빛은 날 감싸고 도네
+        Black to the Pink 어디서든 특별해 (Oh yes)
+        쳐다 보든 말든 I wanna dance
+        Like 따라다라단딴 따라다라단딴 뚜루룹바우
+        좋아, 이 분위기가 좋아
+        좋아, 난 지금 네가 좋아
+        정말 반했어
+        오늘 밤 너와 춤추고 싶어
+        붐바야
+        Yah yah yah 붐바야
+        Yah yah yah 붐바야 yah yah yah yah
+        붐붐바 붐붐바 (오빠!)
+        Yeah, yeah (오빠!)
+        Yeah, yeah 붐붐바 붐바야
+        (Hot) BLACKPINK in your area
+        Oh, 이제 달려야지 뭘 어떡해
+        난 철 없어 겁 없어 man
+        Middle finger up, F-U pay me
+        ''90s baby, I pump up the jam
+        달려봐 달려봐 오빠야 Lambo
+        오늘은 너와 나 젊음을 gamble
+        감히 날 막지마 혹시나 누가 날 막아도 I''m gonna go brrrr
+        Rambo
+        네 손이 내 허리를 감싸고 도네
+        Front to my back 내 몸매는 특별해 (oh, yes)
+        네 눈빛은 I know you wanna touch
+        Like touch, touch, touch 뚜루룹바우
+        좋아, 이 분위기가 좋아
+        좋아, 난 지금 네가 좋아
+        정말 멋있어
+        오늘 밤 너와 춤추고 싶어
+        붐바야
+        Yah yah yah 붐바야
+        Yah yah yah 붐바야 yah yah yah yah
+        붐붐바 붐붐바 (오빠!)
+        Yeah, yeah (오빠!)
+        Yeah, yeah 붐붐바 붐바야
+        오늘은 맨 정신 따윈 버리고
+        하늘을 넘어서 올라 갈 거야
+        끝을 모르게 빨리 달리고 싶어
+        Let''s go, let''s go
+        오늘은 맨 정신 따윈 버리고
+        하늘을 넘어서 올라 갈 거야
+        끝을 모르게 빨리 달리고 싶어
+        Let''s go, let''s go'
        ,'블랙핑크','2016-11-01','가요');
-INSERT INTO music(music_name, lyrics, artist, release_date, genre) VALUES('곰세마리',NULL ,'동요','2008-11-11','동요');
-INSERT INTO music(music_name, lyrics, artist, release_date, genre) VALUES('joker',NULL ,'달샤벳','2015-04-15','가요');
+INSERT INTO music(music_name, lyrics, artist, release_date, genre)
+VALUES('곰세마리',
+'        곰 세 마리가 한 집에 있어
+
+        아빠 곰 엄마 곰 애기 곰
+
+        아빠 곰은 뚱뚱해
+
+        엄마 곰은 날씬해
+
+        애기 곰은 너무 귀여워
+
+        으쓱 으쓱 잘한다'
+       ,'동요','2008-11-11','동요');
+INSERT INTO music(music_name, lyrics, artist, release_date, genre)
+VALUES('joker',
+'        Joker, joker
+        Joker, joker
+        Joker, joker
+        내 앞에선 네가 젤 예쁘대 놓고
+        왜 자꾸 여기저기 눈 돌리는데
+        하나둘씩 더
+        커져가는 내 맘 몰라
+        너어어언
+        너 자꾸 튕기지 마
+        I wanna love tonight
+        또 흔적만 남기고 떠나는 거
+        이젠 싫어 (No)
+        밤이 깊어갈수록
+        알고 싶어지는 너
+        더 이상 멈출 수가 없어
+        I wanna stop it
+        Hey Mr. Joker 왜 날 흔들어
+        애매한 네 눈빛이 더 끌려
+        Hey Mr. 날 가지고 놀지 마
+        내 맘 가득 채워줘요
+        Gimme wanna babe
+        Gimme wanna babe
+        Joker, joker
+        (I wanna)
+        Show me wanna babe
+        Show me wanna babe
+        Joker, joker
+        내가 네 것인 듯 날 다루는 touch
+        빨개진 내 얼굴 왜 나를 놀려
+        Hey boy Ma joker
+        I want it
+        Woo woo woo woo woo woo woo
+        밤이 깊어와 Baby Tonight
+        숨이 가빠와 Baby Good night
+        Woah oh oh oh oh yeah
+        커피가 식으면 우린 더 뜨거워져
+        지울 수가 없는 너의 흔적 boy
+        (Show me your love now)
+        Hey Mr. Joker 왜 날 흔들어
+        애매한 네 눈빛이 더 끌려
+        Hey Mr. 날 가지고 놀지 마
+        내 맘 가득 채워줘요
+        Gimme wanna babe
+        Gimme wanna babe
+        Joker, joker
+        (I wanna)
+        Show me wanna babe
+        Show me wanna babe
+        Joker, joker
+        때론 네 품에서
+        아무 말 없이 안겨있고 싶어
+        내 옷깃에 베인 네 향기
+        네 눈 속에 갇힌 my 실루엣
+        지워지지도 지우고 싶지도 않아
+        이젠 네 가면을 벗어
+        나나나나나나 오오
+        나나나나나나 오오
+        나나나나나나 오오
+        Come to me babe
+        나나나나나나 오오
+        나나나나나나 오오
+        나나나나나나 오오 바래
+        Hey Mr. Joker 왜 날 흔들어
+        애매한 네 눈빛이 더 끌려
+        Gimme wanna babe
+        Gimme wanna babe
+        Joker, joker
+        (I wanna)
+        Show me wanna babe
+        Show me wanna babe
+        I wanna love tonight'
+       ,'달샤벳','2015-04-15','가요');

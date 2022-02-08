@@ -23,7 +23,7 @@ public class MainController {
     private final BoardService boardService;
 
     /**
-     * 초기 Index Page 보여주는 기능
+     * 초기 Index Page로 음악 전체 List 보여주는 기능
      * @param mv mv
      * @return ModelAndView
      */
