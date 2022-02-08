@@ -1,5 +1,6 @@
 package solo.project.music.board.service;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import solo.project.music.board.dto.BoardDto;
@@ -9,14 +10,15 @@ import java.util.List;
 
 @Service
 @Slf4j
+@RequiredArgsConstructor
 public class BoardService {
     private final BoardMapper boardMapper;
 
-    public BoardService(BoardMapper boardMapper){
-        this.boardMapper = boardMapper;
-    }
-    public List<BoardDto> list(BoardDto boardDto){
-        return boardMapper.list(boardDto);
+//    public BoardService(BoardMapper boardMapper){
+//        this.boardMapper = boardMapper;
+//    }
+    public List<BoardDto> list(){
+        return boardMapper.list();
     }
     public List<BoardDto> createMusic(BoardDto boardDto){
         int result = boardMapper.createMusic(boardDto);
@@ -25,7 +27,7 @@ public class BoardService {
             resultSet="등록 성공";
         }
         log.info("resultSet : {}", resultSet);
-        return boardMapper.list(boardDto);
+        return boardMapper.list();
     }
     public int deleteMusic(Long seq){
         int result = boardMapper.deleteMusic(seq);
@@ -44,7 +46,7 @@ public class BoardService {
             resultSet="업데이트 성공";
         }
         log.info("resultSet : {}", resultSet);
-        return boardMapper.list(boardDto);
+        return boardMapper.list();
     }
     public BoardDto lyrics(Long seq){
         return boardMapper.lyrics(seq);

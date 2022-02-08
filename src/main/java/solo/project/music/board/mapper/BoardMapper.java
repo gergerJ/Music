@@ -8,21 +8,21 @@ import java.util.List;
 @Mapper
 public interface BoardMapper {
     //public final BoardDto boardDto;
-    @Select("SELECT * FROM MUSIC")
-    List<BoardDto> list(BoardDto boardDto);
+    @Select("SELECT * FROM music")
+    List<BoardDto> list();
 
-    @Insert("INSERT INTO MUSIC(music_name, LYRICS, ARTIST, RELEASE_DATE, GENRE) VALUES(#{music_name}, #{lyrics}, #{artist},current_date(),#{genre})")
+    @Insert("INSERT INTO music(music_name, lyrics, artist, release_date, genre) VALUES(#{music_name}, #{lyrics}, #{artist},current_date(),#{genre})")
     int createMusic(BoardDto boardDto);
 
-    @Delete("DELETE FROM MUSIC WHERE SEQ= #{seq}")
+    @Delete("DELETE FROM music WHERE seq= #{seq}")
     int deleteMusic(Long seq);
 
-    @Select("SELECT * FROM MUSIC where seq = #{seq}")
+    @Select("SELECT * FROM music WHERE seq = #{seq}")
     BoardDto update(Long seq);
 
-    @Update("UPDATE MUSIC SET LYRICS= #{lyrics} where SEQ = #{seq}")
+    @Update("UPDATE music SET LYRICS= #{lyrics} WHERE seq = #{seq}")
     int updateMusic(BoardDto boardDto);
 
-    @Select("SELECT * FROM MUSIC WHERE SEQ = #{seq}")
+    @Select("SELECT * FROM music WHERE seq = #{seq}")
     BoardDto lyrics(Long seq);
 }
