@@ -15,7 +15,6 @@
         function btn(seq){
             const updateBtn = document.frm;
             updateBtn.seq.value = seq;
-            // document.frm.seq.value = seq;
             updateBtn.submit();
         }
     </script>
@@ -23,18 +22,29 @@
 <body>
 <article class="my-3" id="validation">
     <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
-        <h3>곡 정보 입력창</h3>
+        <h3 style="margin-left: 40px; color: #198754">가사 수정 창</h3>
     </div>
 
     <div>
         <div class="bd-example">
-            <form class="row g-3" action="/board/updateMusicList" method="post" name="frm">
+            <form class="row g-3" action="/board/updateMusic" method="post" name="frm">
                 <input type="hidden" name="seq">
-                <div class="col-md-4">
-                    <label for="validationServer02" class="form-label">가사</label>
-                    <input name="lyrics" th:value="${update.lyrics}"  class="form-control is-valid" id="validationServer02"  required>
+                <div class="col-md-4" style="margin-left: 40px">
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div  class="input-group">
+                            <label class="form-label" style="background-color: floralwhite">노래 가사</label>
+                            <div style="overflow:auto; width: 100%; height:600px;">
+                                <textarea name="lyrics" style="width:100%; height:100% " th:text="${find.lyrics}" contenteditable="true" class="form-control" aria-label="With textarea">
+                                </textarea>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-                <button type="button" th:onclick="|btn(${update.seq})|">수정완료</button>
+                <span style="margin-left: 40px">
+                    <button class="btn btn-primary" type="button" th:onclick="|btn(${find.seq})|">수정완료</button>
+                </span>
+
             </form>
         </div>
     </div>

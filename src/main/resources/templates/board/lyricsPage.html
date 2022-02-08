@@ -19,14 +19,13 @@
     </script>
 </head>
 <body>
-    <article class="my-3" id="validation">
+    <article style="margin-left: 40px" class="my-3" id="validation">
         <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
             <h2 style="color: #0a53be"><span th:text="${lyricsView.music_name}"></span> 가사 </h2>
         </div>
 
     </article>
-    <article class="my-3" id="accordion">
-
+    <article style="margin-left: 40px"  class="my-3" id="accordion">
         <div>
             <div class="bd-example">
                 <div class="accordion" id="accordionExample">
@@ -38,18 +37,11 @@
                         </h4>
                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                             <div class="input-group">
-
-                                <div style="overflow:scroll; width:100%; height:500px;" th:text="${lyricsView.lyrics}">
-                                </div>
-<!--                                <textarea  contenteditable="true" class="form-control" aria-label="With textarea">-->
-<!--                                    <%=rb.getCa_pro() %>-->
-
-<!--                                </textarea>-->
-
+                                <textarea style="width:100%; height:500px" th:text="${lyricsView.lyrics}" contenteditable="true" class="form-control" aria-label="With textarea">
+                                </textarea>
                             </div>
                         </div>
                         <button class="btn btn-warning" type="button" onclick="btn()">Music List</button>
-
                     </div>
                 </div>
             </div>

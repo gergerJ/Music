@@ -8,7 +8,7 @@ CREATE TABLE music(
 );
 INSERT INTO music(music_name, lyrics, artist, release_date, genre)
 VALUES('루시퍼',
-       '숨 을 곳도 찾지 못해 나는 피하려고 애써봐도 ||chr(13)||chr(10)||
+       '숨 을 곳도 찾지 못해 나는 피하려고 애써봐도
         거부조차 할 수 없는 네개 갇혀버린 나
         사랑이었다면 정말 사랑했던 거라면 내개 이러지는 말아
         Her whisper is the Lucifer-fer-fer
@@ -66,7 +66,7 @@ VALUES('루시퍼',
        ,'샤이니','2010-07-19','가요');
 INSERT INTO music(music_name, lyrics, artist, release_date, genre)
 VALUES('붐바야',
-       NULL
+       ''
        ,'블랙핑크','2016-11-01','가요');
 INSERT INTO music(music_name, lyrics, artist, release_date, genre) VALUES('곰세마리',NULL ,'동요','2008-11-11','동요');
 INSERT INTO music(music_name, lyrics, artist, release_date, genre) VALUES('joker',NULL ,'달샤벳','2015-04-15','가요');
