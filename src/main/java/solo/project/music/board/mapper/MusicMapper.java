@@ -1,7 +1,7 @@
 package solo.project.music.board.mapper;
 
 import org.apache.ibatis.annotations.*;
-import solo.project.music.board.dto.BoardDto;
+import solo.project.music.board.dto.MusicDto;
 
 import java.util.List;
 
@@ -17,22 +17,22 @@ import java.util.List;
  * 2022-02-07         Han Young Jo             최초 생성
  */
 @Mapper
-public interface BoardMapper {
+public interface MusicMapper {
     @Select("SELECT * FROM music")
-    List<BoardDto> list();
+    List<MusicDto> list();
 
     @Insert("INSERT INTO music(music_name, lyrics, artist, release_date, genre) VALUES(#{music_name}, #{lyrics}, #{artist},current_date(),#{genre})")
-    int registerMusic(BoardDto boardDto);
+    int registerMusic(MusicDto musicDto);
 
     @Delete("DELETE FROM music WHERE seq = #{seq}")
     int deleteMusic(Long seq);
 
     @Select("SELECT * FROM music WHERE seq = #{seq}")
-    BoardDto findMusic(Long seq);
+    MusicDto findMusic(Long seq);
 
     @Update("UPDATE music SET lyrics= #{lyrics} WHERE seq = #{seq}")
-    int updateMusic(BoardDto boardDto);
+    int updateMusic(MusicDto musicDto);
 
     @Select("SELECT * FROM music WHERE seq = #{seq}")
-    BoardDto findLyrics(Long seq);
+    MusicDto findLyrics(Long seq);
 }

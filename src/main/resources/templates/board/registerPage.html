@@ -31,8 +31,22 @@
                         <input name="music_name" type="text" class="form-control is-valid" id="validationServer01" required>
                     </div>
                     <div class="col-md-3">
-                        <label for="validationServer04" class="form-label">장르</label>
-                        <input name="genre" type="text" class="form-control is-invalid" id="validationServer04" required>
+                        <div class="mb-3">
+                            <label for="validationServer04" class="form-label">장르</label>
+                            <select name="genre" class="form-select form-select-lg mb-3"  id="validationServer04" aria-label=".form-select-lg example">
+                                <option selected="">선택하시오</option>
+                                <option name="genre" value="팝송">팝송</option>
+                                <option name="genre" value="힙합">힙합</option>
+                                <option name="genre" value="발라드">발라드</option>
+                                <option name="genre" value="록"> 록 </option>
+                                <option name="genre" value="k-pop">k-pop</option>
+                                <option name="genre" value="댄스">댄스</option>
+                                <option name="genre" value="트로트">트로트</option>
+                                <option name="genre" value="클래식">클래식</option>
+                            </select>
+                        </div>
+<!--                        <label for="validationServer04" class="form-label">장르</label>-->
+<!--                        <input name="genre" type="text" class="form-control is-invalid" id="validationServer04" required>-->
                     </div>
                     <div class="col-md-4">
                         <label for="validationServerUsername" class="form-label">아티스트</label>
@@ -42,7 +56,6 @@
                     </div>
                     <div class="col-md-4">
                         <label for="validationServer02" class="form-label">가사</label>
-<!--                        <input name="lyrics" type="text" class="form-control is-valid" id="validationServer02"  required>-->
                         <textarea name="lyrics" style="width:100%; height:500px" contenteditable="true" id="validationServer02" class="form-control" aria-label="With textarea">
                         </textarea>
                     </div>

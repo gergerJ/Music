@@ -3,8 +3,8 @@ package solo.project.music.board.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import solo.project.music.board.dto.BoardDto;
-import solo.project.music.board.mapper.BoardMapper;
+import solo.project.music.board.dto.MusicDto;
+import solo.project.music.board.mapper.MusicMapper;
 
 import java.util.List;
 
@@ -22,25 +22,25 @@ import java.util.List;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class BoardService {
-    private final BoardMapper boardMapper;
+public class MusicService {
+    private final MusicMapper boardMapper;
 
-    public List<BoardDto> list(){
+    public List<MusicDto> list(){
         return boardMapper.list();
     }
 
     /**
      * 노래 추가 , 결과 List Page 리턴 ( DTO 요청 받은 경우 )
-     * @param boardDto boardDto
+     * @param musicDto boardDto
      * @return List<BoardDto>
      */
-    public List<BoardDto> registerMusic(BoardDto boardDto){
-        int result = boardMapper.registerMusic(boardDto);
-        String resultSet = "등록 실패";
+    public List<MusicDto> registerMusic(MusicDto musicDto){
+        int result = boardMapper.registerMusic(musicDto);
+        String resultSet = "Music 등록 실패";
         if(result>0){
-            resultSet="등록 성공";
+            resultSet="Music 등록 성공";
         }
-        log.info("resultSet : {}", resultSet);
+        log.info("[ MusicService > registerMusic Result: {}]", resultSet);
         return boardMapper.list();
     }
 
@@ -49,14 +49,14 @@ public class BoardService {
      * @param seq seq
      * @return int
      */
-    public int deleteMusic(Long seq){
+    public String deleteMusic(Long seq){
         int result = boardMapper.deleteMusic(seq);
-        String resultSet = "삭제 실패";
+        String resultSet = "Music 삭제 실패";
         if(result>0){
-            resultSet="삭제 성공";
+            resultSet="Music 삭제 성공";
         }
-        log.info("resultSet : {}", resultSet);
-        return result;
+        log.info("[ MusicService > deleteMusic Result: {}]", resultSet);
+        return resultSet;
     }
 
     /**
@@ -64,23 +64,22 @@ public class BoardService {
      * @param seq seq
      * @return BoardDto
      */
-    public BoardDto findMusic(Long seq){
+    public MusicDto findMusic(Long seq){
         return boardMapper.findMusic(seq);
     }
 
     /**
      * 수정 , 결과 List Page 리턴 ( DTO 요청 받은 경우 )
-     * @param boardDto boardDto
+     * @param musicDto boardDto
      * @return List<BoardDto>
      */
-    public List<BoardDto> updateMusic(BoardDto boardDto){
-        log.debug("seq:{}", boardDto.getSeq());
-        int result = boardMapper.updateMusic(boardDto);
+    public List<MusicDto> updateMusic(MusicDto musicDto){
+        int result = boardMapper.updateMusic(musicDto);
         String resultSet = "업데이트 실패";
         if(result>0){
             resultSet="업데이트 성공";
         }
-        log.info("resultSet : {}", resultSet);
+        log.info("[ MusicService > updateMusic Result: {}]", resultSet);
         return boardMapper.list();
     }
 
@@ -89,7 +88,7 @@ public class BoardService {
      * @param seq seq
      * @return BoardDto
      */
-    public BoardDto findLyrics(Long seq){
+    public MusicDto findLyrics(Long seq){
         return boardMapper.findLyrics(seq);
     }
 }

@@ -12,35 +12,51 @@
 
     <!-- Custom styles for this template -->
     <link href="/css/dashboard.css" rel="stylesheet">
+
+    <!— jquery webjars add —>
+    <script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
     <script>
-        function lyricsInfo(seq){
-            const lyricsList = document.frm;
-            lyricsList.seq.value = seq;
-            lyricsList.setAttribute("action", "/board/lyrics")
-            lyricsList.setAttribute("method", "get")
-            lyricsList.submit();
-        }
-        function registerButton(){
-            location.href ="/board/register";
-        }
-        function updateButton(seq){
-            const updateMusic = document.update;
-            updateMusic.seq.value = seq;
-            updateMusic.submit();
-        }
-        function deleteButton(seq){
-            const deleteMusic = document.delete;
-            deleteMusic.seq.value = seq;
-            deleteMusic.submit();
-        }
+        // function lyricsInfo(seq){
+        //     const lyricsList = document.frm;
+        //     lyricsList.seq.value = seq;
+        //     lyricsList.setAttribute("action", "/board/lyrics")
+        //     lyricsList.setAttribute("method", "get")
+        //     lyricsList.submit();
+        // }
+
+        $(document).ready(function () {
+            //게시판 등록 페이지 이동
+            $(".registerButton").on("click", function (){
+                $(location).attr("href", "/board/register");
+            });
+
+            //가사 보기 페이지 이동
+            $(".lyricsInfo").on("click", function (){
+               $(location).attr("href", "/board/lyrics?seq=" + $(this).data("value"));
+            });
+
+            //수정 페이지 이동
+            $(".updateButton").on("click", function (){
+               $(location).attr("href", "/board/findMusic?seq=" + $(this).data("value"));
+            });
+
+            //삭제 기능
+            $(".deleteButton").on("click", function(){
+               //비동기 처리
+               $.post("/board/deleteMusic", {seq: $(this).data("value")}, function (data) {
+                   alert(data);
+                   location.reload();
+               });
+            });
+        });
     </script>
 </head>
-<form action="/board/findMusic" name="update" method="get">
-    <input name="seq" type="hidden">
-</form>
-<form action="/board/delete" name="delete" method="post">
-    <input name="seq" type="hidden">
-</form>
+<!--<form action="/board/findMusic" name="update" method="get">-->
+<!--    <input name="seq" type="hidden">-->
+<!--</form>-->
+<!--<form action="/board/deleteMusic" name="delete" method="post">-->
+<!--    <input name="seq" type="hidden">-->
+<!--</form>-->
 <form name="frm">
     <input type="hidden" name="seq">
 </form>
@@ -48,7 +64,18 @@
 
     <div class="container-fluid" >
         <div class="row">
-            <h1 style="margin-left: 20px" ><strong> Music List </strong></h1>
+            <h1 style="margin-left: 20px" >
+                <select style="width: 300px" name="genre" class="form-select form-select-lg mb-3"  id="validationServer04" aria-label=".form-select-lg example">
+                    <stron>
+                        <option selected="">선택하시오</option>
+                        <option value="My Play List">My Play List</option>
+                        <option value="우울 할 때 듣는 음악">우울 할 때 듣는 음악</option>
+                        <option value="밤에 듣는 음악">밤에 듣는 음악</option>
+                        <option value="신나는 음악">신나는 음악</option>
+                    </stron>
+                </select>
+<!--                <strong> Music List </strong>-->
+            </h1>
             <div></div>
             <div class="table-responsive">
                 <table style="vertical-align:middle;" class="table table-striped table-sm">
@@ -69,19 +96,22 @@
                         <td ><span th:text=" ${list.seq}"></span></td>
                         <td><span th:text="${list.music_name}"></span></td>
                         <td>
-                            <button class="btn btn-info" type="button" th:onclick="|lyricsInfo(${list.seq})|">가사</button>
+                            <button class="btn btn-info lyricsInfo" type="button" th:data-value="${list.seq}">가사</button>
                         </td>
                         <td><span th:text="${list.artist}"></span></td>
                         <td><span th:text="${list.release_date}"></span></td>
                         <td><span th:text="${list.genre}"></span></td>
-                        <td><button class="btn btn-primary" type="button" th:onclick="|updateButton(${list.seq})|" >수정</button></td>
-                        <td><button class="btn btn-danger" type="button" th:onclick="|deleteButton(${list.seq})|" >삭제</button></td>
+                        <td><button class="btn btn-primary updateButton" type="button" th:data-value="${list.seq}" >수정</button></td>
+                        <td><button class="btn btn-danger deleteButton" type="button" th:data-value="${list.seq}" >삭제</button></td>
                     </tr>
                     </tbody>
                 </table>
-                <button class="btn btn-primary" name="btn" type="button" onclick="registerButton()">곡 추가</button>
+                <button class="btn btn-primary registerButton"  name="btn" type="button" >곡 추가</button>
             </div>
         </div>
     </div>
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="/js/cheatsheet.js"></script>
 </body>
 </html>

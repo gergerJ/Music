@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
-import solo.project.music.board.service.BoardService;
+import solo.project.music.board.service.MusicService;
 
 /**
  * packageName : solo.project.music.board.controller
@@ -20,7 +20,7 @@ import solo.project.music.board.service.BoardService;
 @Controller
 @RequiredArgsConstructor
 public class MainController {
-    private final BoardService boardService;
+    private final MusicService boardService;
 
     /**
      * 초기 Index Page로 음악 전체 List 보여주는 기능

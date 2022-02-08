@@ -3,14 +3,10 @@ package solo.project.music.board.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.method.support.ModelAndViewContainer;
 import org.springframework.web.servlet.ModelAndView;
-import solo.project.music.board.dto.BoardDto;
-import solo.project.music.board.service.BoardService;
+import solo.project.music.board.service.MusicService;
 
 /**
  * packageName : solo.project.music.board.controller
@@ -28,8 +24,8 @@ import solo.project.music.board.service.BoardService;
 @Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/board")
-public class BoardController {
-    private final BoardService boardService;
+public class MusicController {
+    private final MusicService boardService;
 
     /**
      * 선택된 노래의 가사를 보여줌 ( SEQ 요청 받은 경우 )
@@ -68,42 +64,5 @@ public class BoardController {
         return mv;
     }
 
-    /**
-     * 새로운 노래를 등록 ( DTO 요청받은 경우 )
-     * @param boardDto boardDto
-     * @param mv mv
-     * @return ModelAndView
-     */
-    @PostMapping(value="/registerMusic")
-    public ModelAndView registerMusic(ModelAndView mv, BoardDto boardDto){
-        mv.addObject("List", boardService.registerMusic(boardDto));
-        mv.setViewName("redirect:/board/list");
-        return mv;
-    }
 
-    /**
-     * 노래 삭제 기능 ( SEQ 요청 받은 경우 )
-     * @param seq seq
-     * @param mv mv
-     * @return ModelAndView
-     */
-    @PostMapping(value="/delete")
-    public ModelAndView deleteMusic(ModelAndView mv, Long seq){
-        mv.addObject("List", boardService.deleteMusic(seq));
-        mv.setViewName("redirect:/board/list");
-        return mv;
-    }
-
-    /**
-     * 가사 수정 ( DTO 요청 받은 경우 )
-     * @param boardDto boardDto
-     * @param mv mv
-     * @return ModelAndView
-     */
-    @PostMapping(value="/updateMusic")
-    public ModelAndView updateMusic(ModelAndView mv, BoardDto boardDto){
-        mv.addObject("List", boardService.updateMusic(boardDto));
-        mv.setViewName("redirect:/board/list");
-        return mv;
-    }
 }
