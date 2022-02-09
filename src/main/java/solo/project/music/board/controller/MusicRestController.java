@@ -30,14 +30,13 @@ public class MusicRestController {
     /**
      * 새로운 노래를 등록 ( DTO 요청받은 경우 )
      * @param musicDto boardDto
-     * @param mv mv
      * @return ModelAndView
      */
     @PostMapping(value="/registerMusic")
-    public ModelAndView registerMusic(ModelAndView mv, MusicDto musicDto){
-        mv.addObject("List", boardService.registerMusic(musicDto));
-        mv.setViewName("redirect:/board/list");
-        return mv;
+    public String registerMusic(MusicDto musicDto){
+//        mv.addObject("List", boardService.registerMusic(musicDto));
+//        mv.setViewName("redirect:/board/list");
+        return boardService.registerMusic(musicDto);
     }
 
     /**

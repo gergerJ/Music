@@ -34,14 +34,14 @@ public class MusicService {
      * @param musicDto boardDto
      * @return List<BoardDto>
      */
-    public List<MusicDto> registerMusic(MusicDto musicDto){
+    public String registerMusic(MusicDto musicDto){
         int result = boardMapper.registerMusic(musicDto);
         String resultSet = "Music 등록 실패";
         if(result>0){
-            resultSet="Music 등록 성공";
+            resultSet = "Music 등록 성공";
         }
         log.info("[ MusicService > registerMusic Result: {}]", resultSet);
-        return boardMapper.list();
+        return resultSet;
     }
 
     /**

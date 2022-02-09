@@ -11,10 +11,31 @@
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="/css/cheatsheet.css" rel="stylesheet">
+
+    <!— jquery webjars add —>
+    <script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
     <script>
-        function btn(){
-            document.frm.submit();
-        }
+        // function btn(){
+        //     document.frmBoard.submit();
+        // }
+
+        $(document).ready(function () {
+            //등록 이벤트 진행
+            $("#registerBoardInfo").on("click", function () {
+                if(invalid() == true){
+                    $("#music_name").removeClass('is-invalid');
+                    // $("#passwd").removeClass('is-invalid');
+
+                    // 아래는 비동기 처리  ( 주소 ,
+                    $.post("/board/registerMusic", $("form[name=frmBoard]").serialize() , function (data) {
+                        alert(data);
+                        if(data.search('성공') > 0){
+                            $(location).attr("href", "/board/list");
+                        }
+                    });
+                }
+            });
+        });
     </script>
 </head>
 <body style="margin-left: 20px">
@@ -25,10 +46,16 @@
 
         <div>
             <div class="bd-example">
-                <form class="row g-3" action="/board/registerMusic" method="post" name="frm">
+                <form class="row g-3" name="frmBoard">
                     <div class="col-md-4">
-                        <label for="validationServer01" class="form-label">곡 제목</label>
-                        <input name="music_name" type="text" class="form-control is-valid" id="validationServer01" required>
+                        <label class="form-label">곡 제목</label>
+                        <input name="music_name" value="문자 및 숫자만 입력 가능합니다" type="text" class="form-control is-valid" id="music_name" required>
+                        <div class="valid-feedback">
+                            입력 완료.
+                        </div>
+                        <div class="invalid-feedback music-feedback">
+                            문자 및 숫자만 입력 가능합니다.
+                        </div>
                     </div>
                     <div class="col-md-3">
                         <div class="mb-3">
@@ -45,8 +72,6 @@
                                 <option name="genre" value="클래식">클래식</option>
                             </select>
                         </div>
-<!--                        <label for="validationServer04" class="form-label">장르</label>-->
-<!--                        <input name="genre" type="text" class="form-control is-invalid" id="validationServer04" required>-->
                     </div>
                     <div class="col-md-4">
                         <label for="validationServerUsername" class="form-label">아티스트</label>
@@ -61,7 +86,7 @@
                     </div>
 
                     <div class="col-12">
-                        <button class="btn btn-primary" type="submit" onclick="btn()">곡 등록</button>
+                        <button class="btn btn-primary" id="registerBoardInfo" type="submit" >곡 등록</button>
                     </div>
                 </form>
             </div>
@@ -69,6 +94,7 @@
     </article>
 </body>
 <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
-
 <script src="/js/cheatsheet.js"></script>
+<script src="/js/boarder-validation.js"></script>
+
 </html>
